@@ -1,0 +1,21 @@
+<div class="predictive-search__form-container">
+  <input class="predictive-input" 
+        [placeholder]="placeholder"
+        (keyup)="searchPredictive($event.target.value)"
+        [(ngModel)]="query"
+        #queryModel="ngModel">
+  <button *ngIf="!predictive" class="predictive-button"
+          (click)="searchStatic(queryModel.model)">{{searchButtonText}}</button>
+</div>
+<span *ngIf="listResults && !selectedItem && !searchError" class="predictive-search__total-results" [class.predicitive]="predictive">
+      {{listResults.length}} {{totalResultsText}}
+</span>
+<span *ngIf="searchError" class="predictive-search__total-results" [class.predicitive]="predictive">
+  An error has occurred. Try again
+</span>
+<p *ngIf="selectedItem" class="predictive-search__results-item selected" [innerHTML]="selectedItem"></p>   
+<ul *ngIf="listResults" class="predictive-search__results" [class.predicitive]="predictive">
+  <li class="predictive-search__results-item" *ngFor="let result of listResults; let i = index" (click)="selectItem(i)">
+    <p [innerHTML]="result"></p>
+  </li>
+</ul>

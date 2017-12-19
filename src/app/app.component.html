@@ -1,0 +1,13 @@
+<h1>
+  {{title}}
+</h1>
+<app-predictive-search 
+  serviceName="http://localhost:3000/countries"
+  queryParamName="q"
+  placeholder="Country"
+  [showProperties]="['name']"
+  [predictive]="true"
+  searchButtonText="Search"
+  [debounceTime]="300"
+  totalResultsText="Results">
+</app-predictive-search>

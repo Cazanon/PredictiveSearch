@@ -24,7 +24,7 @@ When text is re-entered in the input, the search is restarted and the selected i
 | totalResultsText | text to show in results | ```string```
 | searchButtonText | text to show in search button  | ```string```
 
-## Eventos
+## Events
 
 | Name | Definition | Output
 | -------| ---------- | ------
